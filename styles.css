@@ -224,7 +224,10 @@ body {
 
 .project-card:hover {
   transform: translateY(var(--hover-transform));
-  box-shadow: var(--hover-shadow);
+  box-shadow:
+    0 0 15px rgba(200, 200, 200, 0.3),
+    0 0 30px rgba(180, 180, 180, 0.2),
+    var(--hover-shadow);
   background-color: var(--card-bg);
 }
 

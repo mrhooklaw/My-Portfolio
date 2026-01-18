@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Triassic Portfolio</title>
+    <title>Project Details | Triassic Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -16,7 +16,7 @@
                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg>
                         /home
                     </a>
-                    <a href="projects.html" class="nav-link active">
+                    <a href="projects.html" class="nav-link">
                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"></path></svg>
                         /projects
                     </a>
@@ -33,55 +33,42 @@
         </header>
 
         <main class="main-content">
-            <h1 class="typewriter">
-                <span class="static-text">My </span>
-                <span class="rotate-text">Projects</span>
-            </h1>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/images/Profile Picture.webp" alt="Project 1 Image">
-                    </div>
-                    <h3 class="project-title">Project Name 1</h3>
-                    <div class="project-details">
-                        <p class="project-description">A brief description of the project and its features.</p>
-                        <a href="project-details.html" class="view-details-btn">View Details</a>
-                    </div>
+            <div class="project-detail-container">
+                <div class="go-back-container">
+                    <a href="projects.html" class="nav-link go-back-button">
+                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H20c.55 0 1-.45 1-1s-.45-1-1-1z"></path>
+                        </svg>
+                        /back to projects
+                    </a>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/images/Profile Picture.webp" alt="Project 2 Image">
+                <article class="project-detail-content">
+                    <h1 class="project-title-detail">Project Name</h1>
+                    
+                    <div class="project-image-large">
+                        <img src="assets/images/Profile Picture.webp" alt="Project Image">
                     </div>
-                    <h3 class="project-title">Project Name 2</h3>
-                    <div class="project-details">
-                        <p class="project-description">A brief description of the project and its features.</p>
-                        <a href="project-details.html" class="view-details-btn">View Details</a>
+                    
+                    <div class="project-description-full">
+                        <h2>About This Project</h2>
+                        <p>This is a detailed description of the project. Here you can explain the purpose, technologies used, challenges faced, and solutions implemented. This section provides comprehensive information about the project for visitors to understand its significance and complexity.</p>
+                        
+                        <h3>Features</h3>
+                        <ul>
+                            <li>Feature 1: Description of the first key feature</li>
+                            <li>Feature 2: Description of the second key feature</li>
+                            <li>Feature 3: Description of the third key feature</li>
+                            <li>Feature 4: Description of the fourth key feature</li>
+                        </ul>
+                        
+                        <h3>Technologies Used</h3>
+                        <p>HTML, CSS, JavaScript, and other relevant technologies used in this project.</p>
+                        
+                        <h3>Challenges & Solutions</h3>
+                        <p>During the development of this project, several challenges were encountered. These included performance optimization, cross-browser compatibility, and user experience considerations. Each challenge was addressed with specific solutions that improved the overall quality of the project.</p>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/images/Profile Picture.webp" alt="Project 3 Image">
-                    </div>
-                    <h3 class="project-title">Project Name 3</h3>
-                    <div class="project-details">
-                        <p class="project-description">A brief description of the project and its features.</p>
-                        <a href="project-details.html" class="view-details-btn">View Details</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/images/Profile Picture.webp" alt="Project 4 Image">
-                    </div>
-                    <h3 class="project-title">Project Name 4</h3>
-                    <div class="project-details">
-                        <p class="project-description">A brief description of the project and its features.</p>
-                        <a href="project-details.html" class="view-details-btn">View Details</a>
-                    </div>
-                </div>
+                </article>
             </div>
         </main>
 

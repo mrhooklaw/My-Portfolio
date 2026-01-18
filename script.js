@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'an Engineer',
                 'a Problem Solver'
             ];
-        } else if (currentPath.includes('/projects')) {
+        } else if (currentPath.includes('/projects') || currentPath.includes('/project-details')) {
             rotateTexts = [
                 'Projects',
                 'Creations',

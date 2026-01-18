@@ -1,0 +1,432 @@
+/* Global styles based on the Website project */
+:root {
+  --background: #000000;
+  --foreground: #ededed;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Fira Code", "Consolas", "Menlo", "Monaco", "Ubuntu Mono",
+    "DejaVu Sans Mono", monospace;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* Grid background effect */
+.grid-lines {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-attachment: fixed;
+  background-repeat: repeat;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #d1d5db; /* gray-300 equivalent */
+  color: black;
+}
+
+.nav-link.active {
+  background-color: #d1d5db; /* gray-300 equivalent */
+  color: black;
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.coffee-link {
+  text-decoration: none;
+  color: black;
+  background-color: #93c5fd; /* blue-200 equivalent */
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.coffee-link:hover {
+  transform: translateY(-4px); /* Match original hover effect */
+}
+
+.coffee-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Main content */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-grow: 1;
+  padding: 20px 0;
+}
+
+.main-content h1 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Static text styling */
+.static-text {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.3s forwards;
+}
+
+/* Rotating text styling */
+.rotate-text {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  text-decoration: underline;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.5s forwards;
+}
+
+/* Base h1 styling */
+.typewriter {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between "I am" and the rotating text */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.about-section p {
+  color: #ccc;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Blinking cursor effect for the paragraph */
+.blinking-cursor {
+  animation: blink 1s infinite;
+  color: #fff;
+  margin-right: 5px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Projects grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 30px;
+}
+
+.project-card {
+  background-color: #000000; /* Much darker black */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 300px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #000000; /* Maintain dark background on hover */
+}
+
+.project-image {
+  width: 100%;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  filter: blur(3px);
+}
+
+/* Removed .project-content as it's no longer used in the HTML structure */
+
+.project-title {
+  color: white;
+  margin: 0;
+  font-size: 1.2rem;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 70%; /* Start of the bottom 30% area */
+  height: 30%; /* Height of the bottom area */
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2; /* Ensure title is above image */
+  opacity: 1;
+}
+
+.project-card:hover .project-title {
+  position: absolute;
+  top: 35%; /* Half of 70% to center in the top portion */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center both horizontally and vertically within the image area */
+  font-size: 1.5rem;
+  z-index: 4; /* Ensure title is above blurred image and details */
+  text-align: center;
+  width: 100%;
+  opacity: 1;
+}
+
+.project-details {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  width: 100%;
+  padding: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 3; /* Ensure details are above image but below title */
+  background-color: rgba(0, 0, 0, 0.85); /* Dark background for readability */
+  height: calc(30% - 12px); /* Adjust height to fit within the 30% space */
+  overflow: hidden; /* Prevent content overflow */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 5px; /* Add gap between elements */
+}
+
+.project-card:hover .project-details {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-description {
+  color: #ccc;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+}
+
+/* Tags have been removed from the project details */
+
+.view-details-btn {
+  text-decoration: none;
+  color: black;
+  background-color: #d1d5db; /* gray-300 equivalent */
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: block;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+  width: 100%; /* Take full width of container */
+  text-align: center;
+  margin-top: auto; /* Push to bottom of container */
+}
+
+.view-details-btn:hover {
+  background-color: #9ca3af; /* gray-400 equivalent */
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+  padding-top: 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px; /* gap-6 equivalent */
+  padding: 16px; /* p-4 equivalent */
+  color: black; /* text-black */
+}
+
+.copyright-container, .social-links-container {
+  background-color: #d1d5db; /* bg-gray-300 */
+  box-shadow: 0 4px 6px -1px rgba(209, 213, 219, 0.5), 0 2px 4px -1px rgba(209, 213, 219, 0.5); /* shadow-md shadow-gray-200 */
+  border-radius: 9999px; /* rounded-full */
+  padding-top: 4px; /* py-1 */
+  padding-bottom: 4px; /* py-1 */
+  padding-left: 24px; /* px-6 */
+  padding-right: 24px; /* px-6 */
+  height: 40px; /* h-10 */
+  display: flex;
+  align-items: center;
+}
+
+.social-links-container {
+  display: flex;
+  align-items: center;
+  gap: 24px; /* gap-6 equivalent */
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-4px); /* Removed scale to prevent box expansion */
+}
+
+.social-icon {
+  width: 20px; /* h-5 w-5 */
+  height: 20px;
+  fill: black;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover .social-icon {
+  width: 24px; /* Slightly larger size on hover */
+  height: 24px;
+}
+
+.source-code-container {
+  text-decoration: none;
+}
+
+.source-code-content {
+  background-color: #d1d5db; /* bg-gray-300 */
+  box-shadow: 0 4px 6px -1px rgba(209, 213, 219, 0.5), 0 2px 4px -1px rgba(209, 213, 219, 0.5); /* shadow-md shadow-gray-200 */
+  border-radius: 9999px; /* rounded-full */
+  padding-top: 4px; /* py-1 */
+  padding-bottom: 4px; /* py-1 */
+  padding-left: 24px; /* px-6 */
+  padding-right: 24px; /* px-6 */
+  height: 40px; /* h-10 */
+  display: flex;
+  align-items: center;
+  gap: 12px; /* gap-3 */
+  transition: transform 200ms ease; /* duration-200 */
+  color: black;
+}
+
+.source-code-content:hover {
+  transform: translateY(-4px); /* hover:translate-y-[-4px] */
+}
+
+.source-code-icon {
+  width: 20px; /* h-5 w-5 */
+  height: 20px;
+  fill: black;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .navbar {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .nav-links {
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    text-align: center;
+  }
+}

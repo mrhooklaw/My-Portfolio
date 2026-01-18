@@ -225,10 +225,27 @@ body {
 .project-card:hover {
   transform: translateY(var(--hover-transform));
   box-shadow:
-    0 0 15px rgba(200, 200, 200, 0.3),
-    0 0 30px rgba(180, 180, 180, 0.2),
+    0 0 5px rgba(200, 200, 200, 0.1),
+    0 0 10px rgba(180, 180, 180, 0.05),
     var(--hover-shadow);
   background-color: var(--card-bg);
+  position: relative;
+}
+
+.project-card:hover::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(124deg,
+    rgba(200, 200, 200, 0.15),
+    rgba(255, 255, 255, 0.1),
+    rgba(150, 150, 150, 0.15),
+    rgba(200, 200, 200, 0.15));
+  border-radius: calc(var(--card-border-radius) + 2px);
+  z-index: -1;
 }
 
 .project-image {

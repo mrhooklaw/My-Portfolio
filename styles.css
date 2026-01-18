@@ -194,30 +194,49 @@ body {
   margin-top: 30px;
 }
 
+/* Customizable project card variables */
 .project-card {
-  background-color: #000000; /* Much darker black */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  height: 300px;
+  --card-bg: #000000;
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-border-radius: 8px;
+  --card-height: 300px;
+  --image-height-percent: 70%;
+  --details-height-percent: 30%;
+  --hover-transform: -5px;
+  --hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  --title-font-size: 1.2rem;
+  --title-hover-font-size: 1.5rem;
+  --title-color: white;
+  --description-color: #ccc;
+  --details-bg: rgba(0, 0, 0, 0.85);
+  --blur-intensity: 3px;
+
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-border-radius);
+  height: var(--card-height);
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  background-color: #000000; /* Maintain dark background on hover */
+  transform: translateY(var(--hover-transform));
+  box-shadow: var(--hover-shadow);
+  background-color: var(--card-bg);
 }
 
 .project-image {
   width: 100%;
-  height: 70%;
+  height: var(--image-height-percent);
   background-color: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 .project-image img {
@@ -228,74 +247,64 @@ body {
 }
 
 .project-card:hover .project-image img {
-  filter: blur(3px);
+  filter: blur(var(--blur-intensity));
 }
 
-/* Removed .project-content as it's no longer used in the HTML structure */
-
+/* Project title that appears at the bottom by default */
 .project-title {
-  color: white;
+  color: var(--title-color);
   margin: 0;
-  font-size: 1.2rem;
+  font-size: var(--title-font-size);
   transition: opacity 0.3s ease;
-  position: absolute;
-  top: 70%; /* Start of the bottom 30% area */
-  height: 30%; /* Height of the bottom area */
-  left: 0;
-  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2; /* Ensure title is above image */
+  height: var(--details-height-percent);
+  position: relative;
+  z-index: 2;
   opacity: 1;
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
-.project-card:hover .project-title {
+/* Project details overlay that appears on hover */
+.project-details-overlay {
   position: absolute;
-  top: 35%; /* Half of 70% to center in the top portion */
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center both horizontally and vertically within the image area */
-  font-size: 1.5rem;
-  z-index: 4; /* Ensure title is above blurred image and details */
-  text-align: center;
-  width: 100%;
-  opacity: 1;
-}
-
-.project-details {
-  position: absolute;
-  top: 70%;
+  top: var(--image-height-percent);
   left: 0;
   width: 100%;
+  height: var(--details-height-percent);
+  background-color: var(--details-bg);
   padding: 12px;
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
-  z-index: 3; /* Ensure details are above image but below title */
-  background-color: rgba(0, 0, 0, 0.85); /* Dark background for readability */
-  height: calc(30% - 12px); /* Adjust height to fit within the 30% space */
-  overflow: hidden; /* Prevent content overflow */
+  z-index: 3;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 5px; /* Add gap between elements */
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  box-sizing: border-box;
+  padding-top: 8px; /* Reduce top padding to move content higher */
 }
 
-.project-card:hover .project-details {
+.project-card:hover .project-details-overlay {
   opacity: 1;
   pointer-events: auto;
 }
 
 .project-description {
-  color: #ccc;
+  color: var(--description-color);
   font-size: 0.8rem;
-  margin-bottom: 8px;
+  margin: 0 0 8px 0;
   flex-shrink: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  width: 100%;
 }
 
 /* Tags have been removed from the project details */
@@ -303,21 +312,38 @@ body {
 .view-details-btn {
   text-decoration: none;
   color: black;
-  background-color: #d1d5db; /* gray-300 equivalent */
+  background-color: #d1d5db;
   padding: 8px 16px;
   border-radius: 4px;
   display: block;
   font-size: 0.8rem;
   transition: all 0.3s ease;
   pointer-events: auto;
-  width: 100%; /* Take full width of container */
+  width: 100%;
   text-align: center;
-  margin-top: auto; /* Push to bottom of container */
+  max-width: 150px; /* Fixed width for consistency */
 }
 
 .view-details-btn:hover {
-  background-color: #9ca3af; /* gray-400 equivalent */
+  background-color: #9ca3af;
   transform: translateY(-2px);
+}
+
+/* Title that moves to center of image on hover */
+.project-card:hover .project-title {
+  position: absolute;
+  top: calc(var(--image-height-percent) / 2);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--title-hover-font-size);
+  z-index: 4;
+  width: 80%;
+  height: auto;
+  text-align: center;
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 4px;
+  opacity: 1;
 }
 
 /* Project Detail Page Styles */
